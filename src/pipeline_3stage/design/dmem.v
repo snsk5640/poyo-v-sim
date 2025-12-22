@@ -15,15 +15,15 @@ module dmem #(parameter byte_num = 2'b00) (
 
     reg [7:0] mem [0:16383];  // 64KiB(16bitアドレス空間)
     reg [13:0] addr_sync;  // 64KiBを表現するための14bitアドレス(下位2bitはここでは考慮しない)
-    
+   
     initial begin
         case (byte_num)
-            2'b00: $readmemh({`MEM_DATA_PATH, "data0.hex"}, mem);
-            2'b01: $readmemh({`MEM_DATA_PATH, "data1.hex"}, mem);
-            2'b10: $readmemh({`MEM_DATA_PATH, "data2.hex"}, mem);
-            2'b11: $readmemh({`MEM_DATA_PATH, "data3.hex"}, mem);
+            2'b00: $readmemh("../software/test/data0.hex", mem); // 2'b00: を追加
+            2'b01: $readmemh("../software/test/data1.hex", mem); // 2'b01: を追加
+            2'b10: $readmemh("../software/test/data2.hex", mem); // 2'b10: を追加
+            2'b11: $readmemh("../software/test/data3.hex", mem); // 2'b11: を追加
         endcase
-    end      
+    end
    
     always @(posedge clk) begin
         if (we) mem[addr[15:2]] <= wr_data;  // 書き込みタイミングをクロックと同期することでBRAM化
