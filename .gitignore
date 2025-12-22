@@ -46,3 +46,16 @@
 #########
 !*.png
 !*.jpg
+
+# Simulation files
+*.vcd
+*.out
+sim/wave.vcd
+sim/poyo_sim.out
+
+# Software build files
+*.hex
+*.dump
+*.bin
+*.elf
+*.o
