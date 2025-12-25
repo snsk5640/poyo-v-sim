@@ -2,26 +2,13 @@
 
 
 int main() {
+    int a = 0;
+    int b = 0;
 
-    while(1){
+    a = 23;
+    b = 24;
 
-        serial_write('H');
-        serial_write('E');
-        serial_write('L');
-        serial_write('L');
-        serial_write('O');
-
-        for (int i=0; i < 2; i++) {
-            serial_write('P');
-            serial_write('O');
-            serial_write('Y');
-            serial_write('O');		
-        }
-
-        delay(3000);
-
-    }
-
+    int c = a + b;
     return 0;
 
 }

@@ -7,7 +7,18 @@
 SRC_DIR = ../src/pipeline_3stage/design
 
 # コンパイル対象のソースファイル（すべての.vファイルを指定）
-SRCS = $(wildcard $(SRC_DIR)/*.v)
+SRCS = ./testbench.v \
+       $(SRC_DIR)/alu.v \
+       $(SRC_DIR)/cpu_top.v \
+       $(SRC_DIR)/decoder.v \
+       $(SRC_DIR)/dmem.v \
+       $(SRC_DIR)/gpi.v \
+       $(SRC_DIR)/gpo.v \
+       $(SRC_DIR)/hardware_counter.v \
+       $(SRC_DIR)/imem.v \
+       $(SRC_DIR)/regfile.v \
+       $(SRC_DIR)/uart.v \
+       $(SRC_DIR)/uart_rx.v
 
 # 生成する実行ファイル名
 TARGET = poyo_sim.out
@@ -17,7 +28,7 @@ VCD_FILE = wave.vcd
 
 # トップモジュール名（cpu_tb.vの中のモジュール名と合わせる）
 # ※通常はファイル名と同じ cpu_tb だと思われます
-TOP_MODULE = cpu_tb
+TOP_MODULE = testbench
 
 # -------------------------------------
 # ツール
